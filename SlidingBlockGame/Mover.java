@@ -36,24 +36,8 @@ public class Mover extends Actor
         }
     }
     
-    public Mover(int isMoveBlock){
+    public Mover(int isMoveBlock){ // not needed right now
         moveBlock = isMoveBlock;
-    }
-    
-    protected void addedToWorld(World world)
-    {
-       blockX = getX();
-       blockY = getY();
-    }
- 
-    public void isClicked()
-    {
-       if (Greenfoot.mouseClicked(null))
-       {
-           MouseInfo mouse = Greenfoot.getMouseInfo();
-           blockX = mouse.getX();
-           blockY = mouse.getY();
-       }
     }
     
     public void act()
@@ -64,9 +48,36 @@ public class Mover extends Actor
         direction[2] = 0;
         direction[3] = 0;
         
-        if(state == true){
-        
-        
+        if(state == false){
+            if(Greenfoot.isKeyDown("left")){
+            {setLocation(getX() + 200,getY());}
+            state = true;
+            direction[0] = 1;
+            }
+            
+            if(Greenfoot.isKeyDown("right")){
+            {setLocation(getX() - 200,getY());}
+            state = true;
+            direction[1] = 1;
+            }
+            
+            if(Greenfoot.isKeyDown("down")){
+            {setLocation(getX(),getY() - 200);}
+            state = true;
+            direction[2] = 1;
+            }
+            
+            if(Greenfoot.isKeyDown("up")){
+            {setLocation(getX(),getY() + 200);}
+            state = true;
+            direction[3] = 1;
+            }
+            else{
+                if(!Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("right")
+                && Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("up")){
+                    state = false;
+                }
+            }
         }
     }
 }
