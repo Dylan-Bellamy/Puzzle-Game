@@ -1,12 +1,19 @@
 #Greenfoot project file
-class.Blocks.image=road.jpg
-class.Mover.image=Wall.jpg
+class.Blocks.image=img1.png
+class.Mover.image=img2.png
+class.MyWorld.image=background.png
+dependency1.from=MyWorld
+dependency1.to=Mover
+dependency1.type=UsesDependency
+dependency2.from=MyWorld
+dependency2.to=Blocks
+dependency2.type=UsesDependency
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=552
 editor.fx.0.y=100
 height=1056
-package.numDependencies=0
+package.numDependencies=2
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false

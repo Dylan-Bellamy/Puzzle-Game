@@ -47,35 +47,36 @@ public class Mover extends Actor
         direction[1] = 0;
         direction[2] = 0;
         direction[3] = 0;
+        Selector();
         
-        if(state == false){
+        if(state == true){
             if(Greenfoot.isKeyDown("left")){
-            {setLocation(getX() + 200,getY());}
-            state = true;
+            {setLocation(getX() - 200,getY());}
+            state = false;
             direction[0] = 1;
             }
             
             if(Greenfoot.isKeyDown("right")){
-            {setLocation(getX() - 200,getY());}
-            state = true;
+            {setLocation(getX() + 200,getY());}
+            state = false;
             direction[1] = 1;
             }
             
             if(Greenfoot.isKeyDown("down")){
-            {setLocation(getX(),getY() - 200);}
-            state = true;
+            {setLocation(getX(),getY() + 200);}
+            state = false;
             direction[2] = 1;
             }
             
             if(Greenfoot.isKeyDown("up")){
-            {setLocation(getX(),getY() + 200);}
-            state = true;
+            {setLocation(getX(),getY() - 200);}
+            state = false;
             direction[3] = 1;
             }
             else{
                 if(!Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("right")
                 && Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("up")){
-                    state = false;
+                    state = true;
                 }
             }
         }

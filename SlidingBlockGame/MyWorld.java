@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Arrays;
 /**
 ------------------------------------------------------------------------
 This is the project README file. Here, you should describe your project.
@@ -36,23 +36,23 @@ public class MyWorld extends World
         // Create a new world with 600x600 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
         
-        makeTiles();
+        makeBlocks();
         
         Arrays.fill(places,0);
         
         int i = 0;
-        while(i < 9){
+        while(i < 7){
             int rand1 = Greenfoot.getRandomNumber(3);
             int rand2 = Greenfoot.getRandomNumber(3);
             if(places[rand1 + rand2 * 3] != 1)
             {
-                if(i == 8)
+                if(i == 6)
                 {
-                    ;
+                    addObject(new Mover((rand1 + 1) + ((rand2 + 0) * 3)),values[rand1] + 0,values2[rand2]);
                 }
                 else
                 {
-                    addObject(new Blocks(i),values[rand1],values2[rand2]);
+                    addObject(new Blocks(),values[rand1],values2[rand2]);
                 }
                 places[rand1 + rand2 * 3] = 1;
                 i++;
@@ -62,7 +62,7 @@ public class MyWorld extends World
     
     public void makeBlocks(){
         int i = 0;
-        while(i < 8)
+        while(i < 6)
         {
             
             i++;
