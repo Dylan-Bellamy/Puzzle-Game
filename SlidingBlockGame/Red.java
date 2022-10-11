@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Mover extends Actor
+public class Red extends Actor
 
 {
     /**
@@ -17,8 +17,7 @@ public class Mover extends Actor
     private boolean state = false;
     int moveBlock = 9;
     int[] direction = {0,0,0,0};
-
-    int blockX, blockY;
+    private String[] red =  {"img2.png"};
     
     public void Selector(){
         if (state == false){
@@ -36,10 +35,13 @@ public class Mover extends Actor
         }
     }
     
-    public Mover(int isMoveBlock){ // not needed right now
+    public Red(int isMoveBlock, int me){ 
         moveBlock = isMoveBlock;
+        setImage(red[me]);
+        getImage().scale(390,195);
     }
     
+        
     public void act()
     {
         // Setting up Variables
@@ -49,28 +51,29 @@ public class Mover extends Actor
         direction[3] = 0;
         Selector();
         
-        if(state == true){
-            if(Greenfoot.isKeyDown("left")){
-            {setLocation(getX() - 200,getY());}
-            state = false;
+        if(state == true){ // If mouse clicked on a block
+            if(Greenfoot.isKeyDown("left")){ // If left arrow was pressed
+            {setLocation(getX() - 200,getY());} // Set location left by 200
+            //if (isAtEdge(getX(), getY() <= 600));
+            state = false; // Reset state 
             direction[0] = 1;
             }
             
-            if(Greenfoot.isKeyDown("right")){
-            {setLocation(getX() + 200,getY());}
-            state = false;
+            if(Greenfoot.isKeyDown("right")){ // If right arrow was pressed
+            {setLocation(getX() + 200,getY());} // Set location right by 200
+            state = false; // Reset state 
             direction[1] = 1;
             }
             
-            if(Greenfoot.isKeyDown("down")){
-            {setLocation(getX(),getY() + 200);}
-            state = false;
+            if(Greenfoot.isKeyDown("down")){ // If down arrow was pressed
+            {setLocation(getX(),getY() + 200);} // Set location down by 200
+            state = false; // Reset state 
             direction[2] = 1;
             }
             
-            if(Greenfoot.isKeyDown("up")){
-            {setLocation(getX(),getY() - 200);}
-            state = false;
+            if(Greenfoot.isKeyDown("up")){ // If up arrow was pressed
+            {setLocation(getX(),getY() - 200);} // Set location up by 200
+            state = false; // Reset state 
             direction[3] = 1;
             }
             else{

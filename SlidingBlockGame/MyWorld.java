@@ -41,18 +41,22 @@ public class MyWorld extends World
         Arrays.fill(places,0);
         
         int i = 0;
-        while(i < 7){
+        while(i < 6){
             int rand1 = Greenfoot.getRandomNumber(3);
             int rand2 = Greenfoot.getRandomNumber(3);
             if(places[rand1 + rand2 * 3] != 1)
             {
-                if(i == 6)
-                {
-                    addObject(new Mover((rand1 + 1) + ((rand2 + 0) * 3)),values[rand1] + 0,values2[rand2]);
+                if(i == 5)
+                {   
+                    //Red tempRed = new Red(9);
+                    //tempRed.imgRed(0);
+                    addObject(new Red((rand1 + 1) + ((rand2 + 0) * 3),0),values[rand1] + 0,values2[rand2]);
                 }
                 else
                 {
-                    addObject(new Blocks(),values[rand1],values2[rand2]);
+                    Blocks tempBlock = new Blocks();
+                    tempBlock.imgBlocks(0);
+                    addObject(tempBlock,values[rand1],values2[rand2]);
                 }
                 places[rand1 + rand2 * 3] = 1;
                 i++;
