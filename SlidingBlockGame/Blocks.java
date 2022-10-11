@@ -62,7 +62,7 @@ public class Blocks extends Actor
         if(state == true){ // If mouse clicked on a block
             if(Greenfoot.isKeyDown("left")){ // If left arrow was pressed
             {setLocation(getX() - 200,getY());} // Set location left by 200
-           // if (isAtEdge(getX(), getY() <= 600));
+            // if (isAtEdge(getX(), getY() <= 600));
             state = false; // Reset state 
             direction[0] = 1;
             }

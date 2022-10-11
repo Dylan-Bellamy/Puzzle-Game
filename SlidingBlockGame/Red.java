@@ -19,6 +19,7 @@ public class Red extends Actor
     int[] direction = {0,0,0,0};
     private String[] red =  {"img2.png"};
     
+    
     public void Selector(){
         if (state == false){
             if(Greenfoot.mouseClicked(this)){
@@ -50,13 +51,16 @@ public class Red extends Actor
         direction[2] = 0;
         direction[3] = 0;
         Selector();
+        Actor collided = getOneIntersectingObject(Blocks.class);
         
         if(state == true){ // If mouse clicked on a block
-            if(Greenfoot.isKeyDown("left")){ // If left arrow was pressed
-            {setLocation(getX() - 200,getY());} // Set location left by 200
-            //if (isAtEdge(getX(), getY() <= 600));
-            state = false; // Reset state 
-            direction[0] = 1;
+            if(Greenfoot.isKeyDown("left") && (collided == null)){ // If left arrow was pressed
+                {setLocation(getX() - 200,getY());} // Set location left by 200
+                state = false; // Reset state 
+                direction[0] = 1;
+            if(collided != null){
+                state = false; // Reset state
+            }
             }
             
             if(Greenfoot.isKeyDown("right")){ // If right arrow was pressed

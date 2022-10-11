@@ -44,13 +44,15 @@ public class MyWorld extends World
         while(i < 6){
             int rand1 = Greenfoot.getRandomNumber(3);
             int rand2 = Greenfoot.getRandomNumber(3);
+            rand1 != 2;
+            rand2 != 0;
             if(places[rand1 + rand2 * 3] != 1)
             {
                 if(i == 5)
                 {   
                     //Red tempRed = new Red(9);
                     //tempRed.imgRed(0);
-                    addObject(new Red((rand1 + 1) + ((rand2 + 0) * 3),0),values[rand1] + 0,values2[rand2]);
+                    addObject(new Red(( 3) + (( 0) * 3),0),values[2] - 100 ,values2[0]);
                 }
                 else
                 {
