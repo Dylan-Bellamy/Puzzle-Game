@@ -68,6 +68,9 @@ public class Red extends Actor
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX() + 200,getY()); // Move Back to original posistion
                 }
+                if (getX() == 0){
+                    setLocation(getX() + 200,getY()); // Move Back to original posistion
+                }
             }
             
             if(Greenfoot.isKeyDown("right")){ // If right arrow was pressed
@@ -77,13 +80,16 @@ public class Red extends Actor
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX() - 200,getY()); // Move Back to original posistion
                 }
+                if (getX() == 599){
+                    setLocation(getX() - 200,getY()); // Move Back to original posistion
+                }
             }
             
             if(Greenfoot.isKeyDown("down")){ // If down arrow was pressed
             setLocation(getX(),getY() + 200); // Set location down by 200
             state = false; // Reset state 
             direction[2] = 1;
-                if (isTouching(Blocks.class)){ // Touchs Block object 
+                if (isTouching(Blocks.class)||getX() >= 299 && getY() >= 700){ // Touchs Block object 
                     setLocation(getX(),getY() - 200); // Move Back to original posistion
                 }
             }
@@ -94,6 +100,9 @@ public class Red extends Actor
             direction[3] = 1;
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX(),getY() + 200); // Move Back to original posistion
+                }
+                if (getY() == 0){
+                    setLocation(getX(),getY() + 100); // Move Back to original posistion
                 }
             }
             else{

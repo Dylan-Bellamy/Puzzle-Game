@@ -39,12 +39,15 @@ public class MyWorld extends World
         makeBlocks();
         
         Arrays.fill(places,0);
-        
+                
         int i = 0;
         while(i < 6){
             int rand1 = Greenfoot.getRandomNumber(3);
             int rand2 = Greenfoot.getRandomNumber(3);
             
+            Border tempBorder = new Border();
+            tempBorder.imgBorder(0);
+            addObject(tempBorder, 505, 635);
             if(places[rand1 + rand2 * 3] != 1)
             {
                 if(i == 0)
@@ -64,6 +67,9 @@ public class MyWorld extends World
                 }
                 places[rand1 + rand2 * 3] = 1;
                 i++;
+                if(Red.getX() == 200 && Red.getY() == 700){
+                    System.out.println("Winner");
+                }
             }
         }
     }

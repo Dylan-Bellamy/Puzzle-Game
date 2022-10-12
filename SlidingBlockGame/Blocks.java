@@ -94,7 +94,7 @@ public class Blocks extends Actor
             setLocation(getX(),getY() + 200); // Set location down by 200
             state = false; // Reset state 
             direction[2] = 1;
-                if (isTouching(Blocks.class)||touchingRed()||getY() <= 700){ // Touchs Block object 
+                if (isTouching(Blocks.class)||touchingRed()||getY() >= 700){ // Touchs Block object 
                     setLocation(getX(),getY() - 200); // Move Back to original posistion
                 }
             }
@@ -105,6 +105,9 @@ public class Blocks extends Actor
             direction[3] = 1;
                 if (isTouching(Blocks.class)||touchingRed()){ // Touchs Block object 
                     setLocation(getX(),getY() + 200); // Move Back to original posistion
+                }
+                if (getY() == 0){
+                    setLocation(getX(),getY() + 100); // Move Back to original posistion
                 }
             }
             else{
