@@ -15,12 +15,10 @@ public class Red extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private boolean state = false;
-    int moveBlock = 9;
-    int[] direction = {0,0,0,0};
-    private String[] red =  {"img2.png"};
+    private String[] red =  {"img2.png"}; // From MathPlaygrounds
     
     /** Method of selecting objects
-     * 
+     * @param state true if mouse is clicked, if not, false
      */
     public void Selector(){
         if (state == false){
@@ -31,7 +29,7 @@ public class Red extends Actor
     }
     
     /** Method of deselecting objects
-     * 
+     * @param not used b/c it breaks the code
      */
     public void Deselect(){
         if(this.state){
@@ -41,8 +39,10 @@ public class Red extends Actor
         }
     }
     
-    public Red(int isMoveBlock, int me){ 
-        moveBlock = isMoveBlock;
+    /** Method to set image scale of actor
+     * @param me - used to scroll through a list of images / animation, but was never used
+     */
+    public Red(int me){ 
         setImage(red[me]);
         getImage().scale(390,195);
     }
@@ -53,18 +53,20 @@ public class Red extends Actor
     public void act()
     {
         // Setting up Variables
-        direction[0] = 0;
-        direction[1] = 0;
-        direction[2] = 0;
-        direction[3] = 0;
+        
         Selector();
         
+        if(getX() == 200 && getY() == 700){
+                    System.out.println("Winner");
+                    getWorld().showText("Game Over", 300, 425);
+                    getWorld().showText("You Won", 300, 475);
+                    Greenfoot.stop();
+        }
         
         if(state == true){ // If mouse clicked on a block
             if(Greenfoot.isKeyDown("left")){ // If left arrow was pressed
                 setLocation(getX() - 200,getY()); // Set location left by 200
                 state = false; // Reset state 
-                direction[0] = 1;
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX() + 200,getY()); // Move Back to original posistion
                 }
@@ -76,7 +78,6 @@ public class Red extends Actor
             if(Greenfoot.isKeyDown("right")){ // If right arrow was pressed
             setLocation(getX() + 200,getY());// Set location right by 200
             state = false; // Reset state 
-            direction[1] = 1;
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX() - 200,getY()); // Move Back to original posistion
                 }
@@ -88,8 +89,7 @@ public class Red extends Actor
             if(Greenfoot.isKeyDown("down")){ // If down arrow was pressed
             setLocation(getX(),getY() + 200); // Set location down by 200
             state = false; // Reset state 
-            direction[2] = 1;
-                if (isTouching(Blocks.class)||getX() >= 299 && getY() >= 700){ // Touchs Block object 
+                if (isTouching(Blocks.class)||getX() >= 299 && getY() >= 700||getY() >= 900){ // Touchs Block object 
                     setLocation(getX(),getY() - 200); // Move Back to original posistion
                 }
             }
@@ -97,7 +97,7 @@ public class Red extends Actor
             if(Greenfoot.isKeyDown("up")){ // If up arrow was pressed
             setLocation(getX(),getY() - 200); // Set location up by 200
             state = false; // Reset state 
-            direction[3] = 1;
+            
                 if (isTouching(Blocks.class)){ // Touchs Block object 
                     setLocation(getX(),getY() + 200); // Move Back to original posistion
                 }

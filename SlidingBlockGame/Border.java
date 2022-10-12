@@ -14,8 +14,8 @@ public class Border extends Actor
      */
     private String[] border =  {"img3.png"}; // From MathPlaygrounds
     
-    /** Method Resize image
-     * 
+    /** Method to set image scale of actor
+     * @param me - used to scroll through a list of images / animation, but was never used
      */
     public void imgBorder(int me){
         setImage(border[me]);
