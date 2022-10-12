@@ -46,8 +46,14 @@ public class Blocks extends Actor
         setImage(blocks[me]);
         getImage().scale(195,195);
     }
+    /** Method public version of isTouching(Red.class) to be used in the world
+     * 
+     */
+    public boolean touchingRed(){
+        return isTouching(Red.class);
+    }
     
-    /** Method
+    /** Method checks if mouse has clicked on a block and if pressed an arrow key and moves block accordling to arrow, but if an another object is in the way it brings back the block to it's original posistion 
      * 
      */
     public void act()
@@ -58,31 +64,48 @@ public class Blocks extends Actor
         direction[2] = 0;
         direction[3] = 0;
         Selector();
-        
+
         if(state == true){ // If mouse clicked on a block
             if(Greenfoot.isKeyDown("left")){ // If left arrow was pressed
-            {setLocation(getX() - 200,getY());} // Set location left by 200
-            // if (isAtEdge(getX(), getY() <= 600));
-            state = false; // Reset state 
-            direction[0] = 1;
+                setLocation(getX() - 200,getY()); // Set location left by 200
+                state = false; // Reset state 
+                direction[0] = 1;
+                if (isTouching(Blocks.class)||touchingRed()){ // Touchs Block object 
+                    setLocation(getX() + 200,getY()); // Move Back to original posistion
+                }
+                if (getX() == 0){
+                    setLocation(getX() + 100,getY()); // Move Back to original posistion
+                }
             }
             
             if(Greenfoot.isKeyDown("right")){ // If right arrow was pressed
-            {setLocation(getX() + 200,getY());} // Set location right by 200
+            setLocation(getX() + 200,getY());// Set location right by 200
             state = false; // Reset state 
             direction[1] = 1;
+                if (isTouching(Blocks.class)||touchingRed()){ // Touchs Block object 
+                    setLocation(getX() - 200,getY()); // Move Back to original posistion
+                }
+                if (getX() == 599){
+                    setLocation(getX() - 100,getY()); // Move Back to original posistion
+                }
             }
             
             if(Greenfoot.isKeyDown("down")){ // If down arrow was pressed
-            {setLocation(getX(),getY() + 200);} // Set location down by 200
+            setLocation(getX(),getY() + 200); // Set location down by 200
             state = false; // Reset state 
             direction[2] = 1;
+                if (isTouching(Blocks.class)||touchingRed()||getY() <= 700){ // Touchs Block object 
+                    setLocation(getX(),getY() - 200); // Move Back to original posistion
+                }
             }
             
             if(Greenfoot.isKeyDown("up")){ // If up arrow was pressed
-            {setLocation(getX(),getY() - 200);} // Set location up by 200
+            setLocation(getX(),getY() - 200); // Set location up by 200
             state = false; // Reset state 
             direction[3] = 1;
+                if (isTouching(Blocks.class)||touchingRed()){ // Touchs Block object 
+                    setLocation(getX(),getY() + 200); // Move Back to original posistion
+                }
             }
             else{
                 if(!Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("right")

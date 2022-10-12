@@ -34,7 +34,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x600 cells with a cell size of 1x1 pixels.
-        super(600, 600, 1); 
+        super(600, 900, 1); 
         
         makeBlocks();
         
@@ -44,21 +44,23 @@ public class MyWorld extends World
         while(i < 6){
             int rand1 = Greenfoot.getRandomNumber(3);
             int rand2 = Greenfoot.getRandomNumber(3);
-            rand1 != 2;
-            rand2 != 0;
+            
             if(places[rand1 + rand2 * 3] != 1)
             {
-                if(i == 5)
+                if(i == 0)
                 {   
-                    //Red tempRed = new Red(9);
-                    //tempRed.imgRed(0);
-                    addObject(new Red(( 3) + (( 0) * 3),0),values[2] - 100 ,values2[0]);
+                    addObject(new Red((1) + ((0) * 3),0),values[2] - 100 ,values2[0]);
                 }
                 else
                 {
                     Blocks tempBlock = new Blocks();
                     tempBlock.imgBlocks(0);
                     addObject(tempBlock,values[rand1],values2[rand2]);
+                    if(tempBlock.touchingRed()){
+                        System.out.println("here");
+                        this.removeObject(tempBlock);
+                        i--;
+                    }
                 }
                 places[rand1 + rand2 * 3] = 1;
                 i++;
@@ -68,10 +70,9 @@ public class MyWorld extends World
     
     public void makeBlocks(){
         int i = 0;
-        while(i < 6)
+        while(i < 6) // if i is less than 6
         {
-            
-            i++;
+            i++; // increase i value by 1
         }
     }
 }
