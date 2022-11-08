@@ -32,26 +32,26 @@ The extra features I included in my program are:
   - [ ] No bugs in program
   - [ ] etc.
 
-
-Overall Program Grade: 
+Program seems less complete than when you were showing me it in class.  Want to chat about this?
+Overall Program Grade: L3+
 
 
 
 ## Project Management [TC]
 
 ### Project Planning
-- [ ] UML Class Diagrams are fully complete and match the program submitted
-- [ ] Every attribute and method have appropriate access modifiers
-- [ ] Relationship between classes correctly defined.
+- [X] *UML Class Diagrams are fully complete and match the program submitted*
+- [X] *Every attribute and method have appropriate access modifiers*
+- [X] *Relationship between classes correctly defined.*
 
 ### Program Internal Documentation Requirements
-- [ ] Full documentation of code (including javadoc style headers for **every method**)
-- [ ] *Code adheres to ICS4UO style guide.*
+- [X] *Full documentation of code (including javadoc style headers for **every method**)*
+- [X] **Code adheres to ICS4UO style guide.**
 
 ### Regular Github Commits
-- [ ] Regular and meaningful GitHub updates have been made showing daily progress
-- [ ] Reasonable explanations of what was accomplished in the git comments.
+- [X] *Regular and meaningful GitHub updates have been made showing daily progress*
+- [X] *Reasonable explanations of what was accomplished in the git comments.*
 
 
 
-Overall Project Management Grade: 
+Overall Project Management Grade: 4+
