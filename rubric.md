@@ -15,16 +15,16 @@ The extra features I included in my program are:
 ## The Program [KA]
 ### Level 3 Requirements
 
-- [ ] A simple and minimal program based on the genre I selected.
-- [ ] Code follows OO principals and architecture
-- [ ] User-friendly *input-output forms* are implemented
+- [X] *A simple and minimal program based on the genre I selected.*
+- [X] *Code follows OO principals and architecture*
+- [X] *User-friendly *input-output forms* are implemented*
 
 ### Level 4 Requirements
 
-- [ ] All of the level 3 requirements
+- [X] *All of the level 3 requirements*
 - [ ] User interface is a pleasure to use
-- [ ] All user input is sanitized
-- [ ] - [ ] Extra features above and beyond a minimial implementation of the genre selected
+- [X] *All user input is sanitized*
+- [X] *- [ ] Extra features above and beyond a minimial implementation of the genre selected*
 - [ ] Code is efficient
   - [ ] No *unnecessary* repetition of code
   - [ ] *Effective* data structures selected (if applicable)
@@ -33,7 +33,7 @@ The extra features I included in my program are:
   - [ ] etc.
 
 Program seems less complete than when you were showing me it in class.  Want to chat about this?
-Overall Program Grade: L3+
+Overall Program Grade: L4-
 
 
 
